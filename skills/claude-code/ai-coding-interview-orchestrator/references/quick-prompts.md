@@ -20,9 +20,10 @@ Then paste the screenshot, README, requirement text, or code.
 3. 抽象业务模型
 4. 写极简 spec
 5. 写文件级实现计划
-6. 实现核心闭环
-7. 运行最小验证
-8. 输出交付说明
+6. 暂停并让我人工审查任务拆解和修改范围
+7. 我确认后再实现核心闭环
+8. 运行最小验证
+9. 输出交付说明
 
 需求不清晰时最多问 1 个关键问题；如果我没有回答，请基于合理假设继续。
 优先可运行、可解释、可验收，不要过度设计。
@@ -34,7 +35,14 @@ Use the full version only when the current session seems not to follow the skill
 
 ```text
 继续使用 ai-coding-interview-orchestrator。
-基于刚才的 spec，按文件级计划开始实现。先做核心闭环，完成后运行最小验证命令。
+我已确认刚才的 spec 和文件级计划。请开始实现核心闭环，完成后运行最小验证命令。
+```
+
+## Skip Review For This Run
+
+```text
+继续使用 ai-coding-interview-orchestrator。
+本次跳过人工审查门，按你刚才的计划直接实现并验证。
 ```
 
 ## Debug A Failed Run

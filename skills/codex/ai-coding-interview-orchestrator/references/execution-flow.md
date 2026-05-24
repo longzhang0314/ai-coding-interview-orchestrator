@@ -43,7 +43,28 @@ For each file:
 
 Avoid touching unrelated files.
 
-## Phase 5: Implement
+## Phase 5: Human Review Gate
+
+Before implementation, stop and show a review packet:
+
+- Problem understanding
+- Key assumptions
+- Minimum deliverable scope
+- Task breakdown
+- Expected files to change
+- Test or verification plan
+- Risks or trade-offs
+
+Ask the user to review and choose one of:
+
+- Confirm and start implementation
+- Adjust scope or priorities
+- Add missing requirement details
+- Skip review and run fully automated next time
+
+Do not write code until the user confirms, unless the user explicitly requested fully automated execution at the start.
+
+## Phase 6: Implement
 
 Rules:
 
@@ -52,7 +73,7 @@ Rules:
 - Add abstractions only when the requirement demands extension points.
 - Keep AI integrations behind an interface if real credentials are not available.
 
-## Phase 6: Verify
+## Phase 7: Verify
 
 Use `verification-checklist.md`. If tests fail, debug systematically:
 
@@ -61,6 +82,6 @@ Use `verification-checklist.md`. If tests fail, debug systematically:
 - Make one targeted change.
 - Re-run the smallest relevant command.
 
-## Phase 7: Report
+## Phase 8: Report
 
 Use `final-report-template.md`. Keep it concise enough for an interviewer to scan.

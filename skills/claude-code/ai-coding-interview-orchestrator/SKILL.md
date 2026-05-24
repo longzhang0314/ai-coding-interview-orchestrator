@@ -27,6 +27,7 @@ description: Use for AI coding interviews, Claude Code coding exams, take-home t
 - 用工程语言解释陌生业务：输入、处理、规则、状态、输出、配置、异常。
 - 不做重型架构，除非题目明确要求扩展性、插件化或并发性能。
 - 每次实现前都要有极简 spec 和文件级计划。
+- 文件级计划完成后必须进入人工审查门，等待用户确认、调整或补充，再开始编码；除非用户明确要求“全自动执行”“跳过审查”或“直接实现”。
 - 每次交付前都要验证，不能只说“看起来可以”。
 - 最终回复必须包含：完成内容、运行方式、验证方式、设计假设、风险和后续扩展。
 
@@ -37,9 +38,10 @@ description: Use for AI coding interviews, Claude Code coding exams, take-home t
 3. **Model** - 把陌生业务抽象成通用工程模型。需要领域套路时读取 `references/domain-patterns.md`。
 4. **Spec** - 生成极简 spec。模板见 `references/spec-template.md`。
 5. **Plan** - 生成按文件/模块拆分的实现计划，明确先做核心闭环。
-6. **Execute** - 按计划实现；优先沿用现有项目结构、命名和测试方式。
-7. **Verify** - 跑最小验证命令。检查清单见 `references/verification-checklist.md`。
-8. **Report** - 用面试官能看懂的方式汇报。模板见 `references/final-report-template.md`。
+6. **Review Gate** - 暂停并给用户审查包：题目理解、关键假设、最小范围、任务拆解、预计修改文件、验证方式。等待用户说“确认/继续/开始实现”后再编码。
+7. **Execute** - 按确认后的计划实现；优先沿用现有项目结构、命名和测试方式。
+8. **Verify** - 跑最小验证命令。检查清单见 `references/verification-checklist.md`。
+9. **Report** - 用面试官能看懂的方式汇报。模板见 `references/final-report-template.md`。
 
 常用入口提示词见 `references/quick-prompts.md`。
 
@@ -82,6 +84,7 @@ description: Use for AI coding interviews, Claude Code coding exams, take-home t
 - `最小可交付范围`
 - `实现计划`
 - `验证方式`
+- `请你审查：确认后我再开始实现`
 
 实现后输出：
 
