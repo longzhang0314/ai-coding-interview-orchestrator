@@ -18,6 +18,26 @@ Use the highest rung available within interview time:
 4. Static syntax/import check passes.
 5. Manual sample input produces expected output.
 
+## Bounded Repair Policy
+
+Verification failures must not create an endless repair loop.
+
+- Default repair budget: 2 rounds.
+- A repair round starts when code, config, dependency setup, or tests are changed to fix a verification failure.
+- After each repair round, re-run the smallest relevant verification command, not the full suite by default.
+- If the same failure remains after 2 rounds, stop and report controlled incomplete status.
+- If a new unrelated failure appears after a fix, count it as part of the same budget unless the user explicitly expands scope.
+- Continue beyond the budget only after explicit user approval.
+
+When the budget is exhausted, produce:
+
+- Checks that passed
+- Checks that still fail
+- Most likely remaining cause
+- Files changed
+- Whether the core happy path appears usable
+- Suggested next manual decision
+
 ## Language Hints
 
 ### Python
@@ -55,4 +75,5 @@ Use the highest rung available within interview time:
 - Are error messages understandable?
 - Is there at least one happy-path proof?
 - Is there at least one edge-path proof or explanation?
+- Did repair stay within the 2-round budget, or did the user approve continuing?
 - Are secrets, unsafe eval/deserialization, SQL injection, or path traversal risks addressed when relevant?

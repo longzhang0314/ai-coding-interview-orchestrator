@@ -29,6 +29,7 @@ description: Use for AI coding interviews, coding exams, take-home tasks, requir
 - 每次实现前都要有极简 spec 和文件级计划。
 - 文件级计划完成后必须进入人工审查门，等待用户确认、调整或补充，再开始编码；除非用户明确要求“全自动执行”“跳过审查”或“直接实现”。
 - 每次交付前都要验证，不能只说“看起来可以”。
+- 验证失败后的“修复 -> 重新验证”默认最多 2 轮；仍不通过时停止自动修复，输出受控未完成报告和下一步人工决策点。除非用户明确要求继续，不要无限循环。
 - 最终回复必须包含：完成内容、运行方式、验证方式、设计假设、风险和后续扩展。
 
 ## Fast Workflow
@@ -40,7 +41,7 @@ description: Use for AI coding interviews, coding exams, take-home tasks, requir
 5. **Plan** - 生成按文件/模块拆分的实现计划，明确先做核心闭环。
 6. **Review Gate** - 暂停并给用户审查包：题目理解、关键假设、最小范围、任务拆解、预计修改文件、验证方式。等待用户说“确认/继续/开始实现”后再编码。
 7. **Execute** - 按确认后的计划实现；优先沿用现有项目结构、命名和测试方式。
-8. **Verify** - 跑最小验证命令。检查清单见 `references/verification-checklist.md`。
+8. **Verify** - 跑最小验证命令；失败时按有限修复预算处理。检查清单见 `references/verification-checklist.md`。
 9. **Report** - 用面试官能看懂的方式汇报。模板见 `references/final-report-template.md`。
 
 常用入口提示词见 `references/quick-prompts.md`。
@@ -63,6 +64,7 @@ description: Use for AI coding interviews, coding exams, take-home tasks, requir
 - `writing-plans`：只产出文件级短计划。
 - `test-driven-development`：只写核心行为测试或验证脚本。
 - `systematic-debugging`：测试失败或运行异常时启用。
+- 有限修复：默认最多 2 轮修复-验证，超出后停止并汇报。
 - `verification-before-completion`：最终回复前必须做一次。
 
 不要因为完整流程过长而拖慢面试；保留纪律，压缩文档。
@@ -92,6 +94,7 @@ description: Use for AI coding interviews, coding exams, take-home tasks, requir
 - `修改文件`
 - `运行方式`
 - `验证结果`
+- `修复轮次`
 - `风险和扩展`
 
 ## Example Requests

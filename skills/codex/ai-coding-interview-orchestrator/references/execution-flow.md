@@ -75,12 +75,25 @@ Rules:
 
 ## Phase 7: Verify
 
-Use `verification-checklist.md`. If tests fail, debug systematically:
+Use `verification-checklist.md`. If tests fail, debug with a strict repair budget:
 
 - Read exact error.
 - Form one hypothesis.
 - Make one targeted change.
 - Re-run the smallest relevant command.
+- Count one repair round after each code/config/test change made to fix verification.
+- Default maximum: 2 repair rounds.
+- If verification still fails after 2 repair rounds, stop automatic fixing and move to Phase 8 with a controlled incomplete report.
+- Continue beyond 2 rounds only if the user explicitly says to continue.
+
+When stopping after the repair budget, report:
+
+- Which checks passed
+- Which check still fails
+- Most likely remaining cause
+- Files changed during repair rounds
+- Whether the core deliverable appears usable
+- The smallest next manual decision needed
 
 ## Phase 8: Report
 

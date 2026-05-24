@@ -26,6 +26,7 @@ Then paste the screenshot, README, requirement text, or code.
 9. 输出交付说明
 
 需求不清晰时最多问 1 个关键问题；如果我没有回答，请基于合理假设继续。
+验证失败后最多做 2 轮修复和重新验证；仍失败就停止并输出受控未完成报告。
 优先可运行、可解释、可验收，不要过度设计。
 ```
 
@@ -43,6 +44,13 @@ Use the full version only when the current session seems not to follow the skill
 ```text
 请继续使用 $ai-coding-interview-orchestrator。
 本次跳过人工审查门，按你刚才的计划直接实现并验证。
+```
+
+## Expand Repair Budget
+
+```text
+请继续使用 $ai-coding-interview-orchestrator。
+本次允许最多 4 轮修复验证；每轮修复后只跑最小相关验证命令。
 ```
 
 ## Debug A Failed Run
