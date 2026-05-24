@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Coding Interview Orchestrator"
+  short_description: "AI coding 面试主控执行工具"
+  default_prompt: "请使用 $ai-coding-interview-orchestrator，按 AI coding 面试流程把题目从需求分析推进到实现和验证。"
