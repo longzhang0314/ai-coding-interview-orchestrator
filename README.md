@@ -136,6 +136,30 @@ cp -R skills/claude-code/ai-coding-interview-orchestrator ~/.claude/skills/
 - 提供验证清单
 - 提供最终交付报告模板
 
+## 纯提示词版多 Agent 模板
+
+如果面试环境不允许使用预置 skill，可以直接使用 `prompts/multi-agent/` 下的纯提示词模板：
+
+```text
+prompts/multi-agent/
+├── README.md
+├── main-agent.md
+├── subagent-requirement-context-analyst.md
+├── subagent-test-reporter.md
+├── subagent-repair-advisor.md
+└── subagent-final-reviewer.md
+```
+
+推荐分工：
+
+- `main-agent.md`：主 agent，负责领域模型、技术方案、人工确认、编码实现和最终交付。
+- `subagent-requirement-context-analyst.md`：只读分析 README、需求和项目上下文。
+- `subagent-test-reporter.md`：只读整理测试命令和测试报告。
+- `subagent-repair-advisor.md`：只读分析失败原因并提出最小修复建议。
+- `subagent-final-reviewer.md`：只读做交付前复核，可选。
+
+默认不要让子 agent 直接改代码；主 agent 始终负责最终实现。
+
 ## 内置参考模板
 
 每个版本都包含 `references/`：
