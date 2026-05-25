@@ -25,10 +25,10 @@
 
 允许使用的子 agent：
 
-- `Requirement Context Analyst`：只读分析 README、需求、目录结构，产出需求和上下文结论。
-- `Test Reporter`：只读执行或整理测试结果，产出测试报告。
-- `Repair Advisor`：只读分析失败原因，产出修复建议和最小改动方案。
-- `Final Reviewer`：只读复核最终实现、遗漏风险和交付说明。
+- `requirement-context-analyst`：只读分析 README、需求、目录结构，产出需求和上下文结论。
+- `test-reporter`：只读执行或整理测试结果，产出测试报告。
+- `repair-advisor`：只读分析失败原因，产出修复建议和最小改动方案。
+- `final-reviewer`：只读复核最终实现、遗漏风险和交付说明。
 
 使用限制：
 

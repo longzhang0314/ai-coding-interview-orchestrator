@@ -143,20 +143,21 @@ cp -R skills/claude-code/ai-coding-interview-orchestrator ~/.claude/skills/
 ```text
 prompts/multi-agent/
 ├── README.md
-├── main-agent.md
-├── subagent-requirement-context-analyst.md
-├── subagent-test-reporter.md
-├── subagent-repair-advisor.md
-└── subagent-final-reviewer.md
+├── CLAUDE.md
+└── agents
+    ├── requirement-context-analyst.md
+    ├── test-reporter.md
+    ├── repair-advisor.md
+    └── final-reviewer.md
 ```
 
 推荐分工：
 
-- `main-agent.md`：主 agent，负责领域模型、技术方案、人工确认、编码实现和最终交付。
-- `subagent-requirement-context-analyst.md`：只读分析 README、需求和项目上下文。
-- `subagent-test-reporter.md`：只读整理测试命令和测试报告。
-- `subagent-repair-advisor.md`：只读分析失败原因并提出最小修复建议。
-- `subagent-final-reviewer.md`：只读做交付前复核，可选。
+- `CLAUDE.md`：主 agent / 项目级 Claude Code 指令，负责领域模型、技术方案、人工确认、编码实现和最终交付。
+- `agents/requirement-context-analyst.md`：只读分析 README、需求和项目上下文。
+- `agents/test-reporter.md`：只读整理测试命令和测试报告。
+- `agents/repair-advisor.md`：只读分析失败原因并提出最小修复建议。
+- `agents/final-reviewer.md`：只读做交付前复核，可选。
 
 默认不要让子 agent 直接改代码；主 agent 始终负责最终实现。
 

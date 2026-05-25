@@ -26,11 +26,11 @@ Main Agent
 
 ## 文件说明
 
-- `main-agent.md`：主 agent 提示词，负责全流程和代码实现。
-- `subagent-requirement-context-analyst.md`：需求和 README 分析子 agent。
-- `subagent-test-reporter.md`：测试执行和测试报告子 agent。
-- `subagent-repair-advisor.md`：失败原因分析和修复建议子 agent。
-- `subagent-final-reviewer.md`：最终交付前复核子 agent。
+- `CLAUDE.md`：主 agent / 项目级 Claude Code 指令，负责全流程和代码实现。
+- `agents/requirement-context-analyst.md`：需求和 README 分析子 agent。
+- `agents/test-reporter.md`：测试执行和测试报告子 agent。
+- `agents/repair-advisor.md`：失败原因分析和修复建议子 agent。
+- `agents/final-reviewer.md`：最终交付前复核子 agent。
 
 ## Claude Code 安装方式
 
@@ -38,28 +38,29 @@ Main Agent
 
 ```bash
 mkdir -p ~/.claude/agents
-cp prompts/multi-agent/subagent-*.md ~/.claude/agents/
+cp prompts/multi-agent/agents/*.md ~/.claude/agents/
 ```
 
 也可以复制到某个项目的 `.claude/agents/`：
 
 ```bash
 mkdir -p .claude/agents
-cp prompts/multi-agent/subagent-*.md .claude/agents/
+cp prompts/multi-agent/agents/*.md .claude/agents/
+cp prompts/multi-agent/CLAUDE.md ./CLAUDE.md
 ```
 
-`main-agent.md` 不是子 agent 定义，建议作为主会话启动提示词使用。
+`CLAUDE.md` 不是子 agent 定义，建议放在项目根目录作为主会话约束，或复制内容作为主会话启动提示词使用。
 
 ## 推荐使用顺序
 
-1. 把 `main-agent.md` 贴给主 agent。
+1. 在项目根目录放置 `CLAUDE.md`，或把 `CLAUDE.md` 内容贴给主 agent。
 2. 主 agent 完成上下文读取和领域模型定义。
-3. 如果需要并行分析，把 `subagent-requirement-context-analyst.md` 交给子 agent。
+3. 如果需要并行分析，调用 `requirement-context-analyst` 子 agent。
 4. 你确认领域模型和技术方案后，主 agent 开始实现。
-5. 实现完成后，把 `subagent-test-reporter.md` 交给测试子 agent。
-6. 如果测试失败，把测试报告交给 `subagent-repair-advisor.md`。
+5. 实现完成后，调用 `test-reporter` 子 agent。
+6. 如果测试失败，把测试报告交给 `repair-advisor` 子 agent。
 7. 主 agent 根据修复建议做最多 3 轮有限修复。
-8. 最终有时间时使用 `subagent-final-reviewer.md` 复核。
+8. 最终有时间时使用 `final-reviewer` 子 agent 复核。
 
 ## 重要边界
 
