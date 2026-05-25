@@ -32,6 +32,24 @@ Main Agent
 - `subagent-repair-advisor.md`：失败原因分析和修复建议子 agent。
 - `subagent-final-reviewer.md`：最终交付前复核子 agent。
 
+## Claude Code 安装方式
+
+如果要让 Claude Code 直接识别这些子 agent，可以复制到用户级 agents 目录：
+
+```bash
+mkdir -p ~/.claude/agents
+cp prompts/multi-agent/subagent-*.md ~/.claude/agents/
+```
+
+也可以复制到某个项目的 `.claude/agents/`：
+
+```bash
+mkdir -p .claude/agents
+cp prompts/multi-agent/subagent-*.md .claude/agents/
+```
+
+`main-agent.md` 不是子 agent 定义，建议作为主会话启动提示词使用。
+
 ## 推荐使用顺序
 
 1. 把 `main-agent.md` 贴给主 agent。
